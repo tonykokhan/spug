@@ -81,7 +81,15 @@ export default [
       {path: '/config/setting/:type/:id', component: ConfigSetting},
     ]
   },
-  {icon: <MonitorOutlined/>, title: '监控中心', auth: 'monitor.monitor.view', path: '/monitor', component: MonitorIndex},
+  {
+    icon: <MonitorOutlined/>, 
+    title: '监控中心', 
+    auth: 'monitor.monitor.view', 
+    child: [
+      {title: '监控任务', auth: 'monitor.monitor.view', path: '/monitor/task', component: MonitorIndex},
+      {title: '证书监控', auth: 'monitor.monitor.view', path: '/monitor/cert', component: MonitorIndex},
+    ]
+  },
   {
     icon: <AlertOutlined/>, title: '报警中心', auth: 'alarm.alarm.view|alarm.contact.view|alarm.group.view', child: [
       {title: '报警历史', auth: 'alarm.alarm.view', path: '/alarm/alarm', component: AlarmIndex},
